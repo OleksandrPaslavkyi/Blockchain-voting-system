@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VoteChain</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🗳️ VoteChain – Blockchain Voting</h1>
+
+    <form action="/vote" method="POST" class="vote-buttons">
+        <button name="vote" value="YES" class="vote-yes">Vote YES</button>
+        <button name="vote" value="NO" class="vote-no">Vote NO</button>
+    </form>
+
+    <h3>Current Votes:</h3>
+    <div class="vote-counts">
+    <div class="vote yes">
+        <span>YES</span>: {{ vote_counts['YES'] }}
+    </div>
+    <div class="vote no">
+        <span>NO</span>: {{ vote_counts['NO'] }}
+    </div>
+    </div>
+
+
+    <p><a href="/blocks" class="button-link">View Blockchain & Validate</a></p>
+</body>
+
+</html>

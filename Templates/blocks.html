@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain Blocks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Blockchain Blocks</h1>
+
+    <div class="vote-counts">
+    <div class="vote yes">
+        <span>YES</span>: {{ vote_counts['YES'] }}
+    </div>
+    <div class="vote no">
+        <span>NO</span>: {{ vote_counts['NO'] }}
+    </div>
+    </div>
+
+
+    <form action="/blocks/validate" method="POST">
+    <button type="submit" class="validate-btn">Validate Blockchain</button>
+      <p><a href="/" class="button-link">Return to Main Page</a></p>
+    </form>
+
+    {% if validation_result %}
+    <p><strong>{{ validation_result }}</strong></p>
+    {% endif %}
+    <h2>Blocks:</h2>
+    {% for block in chain %}
+
+    <div class="block">
+    <p><strong>Index:</strong> {{ block['index'] }}</p>
+    <p><strong>Timestamp:</strong> {{ block['timestamp'] }}</p>
+    <p><strong>Transactions:</strong></p>
+    <ul>
+        {% for tx in block['transactions'] %}
+        <li>{{ tx }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Previous Hash:</strong> {{ block['previous_hash'] }}</p>
+    <p><strong>Hash:</strong> {{ block['hash'] }}</p>
+    </div>
+
+{% endfor %}
+
+</body>
+</html>
