@@ -1,0 +1,7 @@
+{
+  "validators": [
+    {"id": "node1", "host": "http://192.168.0.127:5001", "pubkey_file": "node1_vk.pem"},
+    {"id": "node2", "host": "http://192.168.0.127:5002", "pubkey_file": "node2_vk.pem"},
+    {"id": "node3", "host": "http://192.168.0.127:5003", "pubkey_file": "node3_vk.pem"}
+  ]
+}
